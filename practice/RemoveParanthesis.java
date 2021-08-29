@@ -1,4 +1,3 @@
-
 package logic;
 import java.util.Scanner;
   public class RemoveParanthesis{
@@ -9,8 +8,9 @@ import java.util.Scanner;
       char [] ch=str.toCharArray();
       int count=0;
       int newCount=0;
+      int m=0;
        for(int i=0,j=str.length()-1;i<str.length()&&j>=0;i++,j--){
-          if(ch[i]=='('){
+         /* if(ch[i]=='('){
               count++;
           }
           if(ch[j]==')'){
@@ -18,6 +18,10 @@ import java.util.Scanner;
           }
        }
        System.out.println(count);
-        System.out.println(newCount); 
+        System.out.println(newCount); */
+      if(ch[i]=='('&&ch[j]==')'){
+          count++;
+      }
+     else      
    }
  }
