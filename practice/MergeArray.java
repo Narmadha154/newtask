@@ -1,3 +1,5 @@
+
+
 package logic;
 import java.util.*;
 public class MergeArray{
@@ -17,38 +19,66 @@ public class MergeArray{
     for(int i=0;i<size2;i++){
         array2[i]=sc.nextInt();
     }
-   /* int count1=0,count2=0;
-    for(int i=0;i<size1;i++){
-        if(array1[i]==array2[i]){
-           count1++;
-        }
-        else{
-           count2+=2;
-        }
-    }*/
-    /*System.out.println(count1+" "+count2);
+    int count=0;
     int j=0;
-    int [] mergedArr=new int[(count1+count2)];
-    for(int i=0;i<(count1+count2);i++){
-       if(array1[i]<array2[i]){
-            mergedArr[j]=array1[i];
-            mergedArr[j+1]=array2[i];
-            j+=2;
+    int [] mergedArr=new int[size1+size2];
+    for(int i=0;i<size1;i++){
+        mergedArr[j]=array1[i];
+        j++;
+        count++;
+     }
+    for(int i=0;i<size2;i++){
+       mergedArr[count]=array2[i];
+       count++;  
+    }
+    int newSize=size1+size2;
+    System.out.println("merged array is:");
+    for(int i=0;i<newSize;i++){
+       System.out.println(mergedArr[i]);
+    }
+    int temp=0;
+    for(int i=1;i<newSize;i++){
+       for(j=0;j<newSize-i;j++){
+          if(mergedArr[j]>mergedArr[j+1]){
+             temp=mergedArr[j];
+             mergedArr[j]=mergedArr[j+1];
+             mergedArr[j+1]=temp;
+           }
         }
      }
-     System.out.println("merged array:");
-     for(int i=0;i<(count1+count2);i++){
-         System.out.println(mergedArr[i]);
-     }*/
-    List<Integer> list=new ArrayList<>();
-    for(int i=0;i<(size2+1);i++){
-        if(list.contains(array1[i])&&list.contains(array2[i])){
-             list.add(array1[i]);
-        }
-        else if(array1[i]>array2[i]){
-           list.add(array1[i]);
-        }
+    int newCount=0;
+    for(int i=0;i<newSize-1;i++){
+      if(mergedArr[i]==mergedArr[i+1]){
+          newCount++;
+       }
     }
-    System.out.println(list);
+    int k=0;
+    for(int i=0;i<newSize-1;i++){
+      if(mergedArr[i]!=mergedArr[i+1]){
+          mergedArr[k++]=mergedArr[i];
+        }
    }
-  }  
+   mergedArr[k++]=mergedArr[newSize-1];
+   k=newSize-newCount;
+   System.out.println("merged array is:");
+    for(int i=0;i<k;i++){
+       System.out.println(mergedArr[i]);
+    }
+  }
+ } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
