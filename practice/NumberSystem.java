@@ -1,37 +1,30 @@
+
+
 package logic;
 import java.util.Scanner;
   public class NumberSystem{
     public static void main(String [] args){
       Scanner sc=new Scanner(System.in);
-      System.out.println("Enter the number 1 :");
+      System.out.println("Enter the nth number of the number system:");
+      int num=sc.nextInt();
+      int [] numberArr=new int[100];
+      System.out.println("Enter the number1:");
       int num1=sc.nextInt();
-      System.out.println("Enter the number 2 :");
+      System.out.println("Enter the number2:");
       int num2=sc.nextInt();
-       System.out.println("Enter the size :");
-      int size=sc.nextInt();
-      int [] numberSystem=new int[size];
-      int sum1=0;
-      int sum2=0;
-      int count=0;
-      for(int i=0;i<size;i+=4){
-          numberSystem[i]=num1+sum2;
-          numberSystem[i+1]=num2+sum2;
-          num1=num1*10;
-          num2=num2*10;
-          sum1=numberSystem[i];
-          sum2=numberSystem[i+1];
-          numberSystem[i+2]=num1+sum1;
-          numberSystem[i+3]=num2+sum1;
-          /* num1=num1*10;
-          num2=num2*10;
-          sum1=numberSystem[i+2];
-          sum2=numberSystem[i+3];
-          count+=2;*/
+      numberArr[0]=num1;
+      numberArr[1]=num2;
+      int j=0;
+      for(int i=2;i<num;i+=2){
+         numberArr[i]=numberArr[j]*10+num1;
+         numberArr[i+1]=numberArr[j]*10+num2;
+         j++;
       }
       System.out.println("array:");
-      for(int i=0;i<size;i++){
-          System.out.println(numberSystem[i]);
+      for(int i=0;i<num;i++){
+        if(numberArr[i]!=0){
+          System.out.println(numberArr[i]);
+        }
       }
     }
   }
-      
