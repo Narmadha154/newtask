@@ -1,25 +1,53 @@
 
+
 import java.util.Scanner;
 public class Set3Prgm{
   public static void main(String [] args){
     Scanner sc=new Scanner(System.in);
-    System.out.println("Enter the no.of string:");
-    int n=sc.nextInt();
-    String [] str=new String[n];
-    System.out.println("Enter the strings:");
-    for(int i=0;i<n;i++){
-      str[i]=sc.next();
-    }
-    System.out.println("String array:");
-      for(int i=0;i<n;i++){
-          System.out.println(str[i]);
-    }
-    for(int i=0;i<n;i+=2){
-       int j=Integer.parseInt(str[i+1]);
-       while(j!=0){
-         System.out.print(str[i]);
-         j--;
+    System.out.println("Enter the string:");
+    String str=sc.next();
+    char temp;
+    int res=0;
+    for(int i=0;i<str.length();i++){
+    
+  /*  if(str.charAt(i)>='0'&&str.charAt(i)<='9'){
+       temp=str.charAt(i-1);
+
+   while(i<str.length()&&str.charAt(i)>='0'&&str.charAt(i)<='9'){
+     res=res*10+(str.charAt(i)-48);
+     i++;
+  }
+ for(int k=0;k<res;k++){
+    System.out.print(temp);
+ }
+}
+ 
+    res=0;
+   }*/ 
+    while(i<str.length()&&str.charAt(i)>='0'&&str.charAt(i)<='9'){
+     res=res*10+(str.charAt(i)-48);
+     i++;
+  }
+  for(int k=0;k<res;k++){
+    System.out.print(str.charAt(i));
+ }
+ res=0;
+}
+}
+}
+
+
+ /* if(str.charAt(i)>='a'&&str.charAt(i)<='z'){
+       int j=i+1;
+       while(str.charAt(j)>=48&&str.charAt(j)<=57&&j<str.length()){
+         b=(b*10)+((int)str.charAt(j)-48);
+         j++;
+         }
+       while(b!=0){
+         System.out.print(str.charAt(i));
+         b--;
        }
      }
-   }
-}
+    }*/
+
+
