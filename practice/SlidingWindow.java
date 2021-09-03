@@ -5,14 +5,16 @@ public class SlidingWindow{
   public static int [] getSubString(int [] arr,int length,int k){
      int [] newArr=new int[k];
      int [] maxArr=new int[length];
-     int newSize=length-k-1;
+     int newSize=length-k;
      int temp=0,q=0;
-     for(int i=0;i<newSize;i++){
+     for(int i=0;i<=newSize;i++){
         int l=i;
-         int m=0;
-        for(int j=l;j<k;j++){
-           newArr[m]=arr[j];
+         int m=0,count=k;
+        while(count!=0){
+           newArr[m]=arr[l];
            m++;
+           count--;
+           l++;
        }
        System.out.println("*");
        for(int t=0;t<k;t++){
@@ -27,10 +29,6 @@ public class SlidingWindow{
              }
           }
        }
-       /*System.out.println("*");
-       for(int t=0;t<k;t++){
-       System.out.println(newArr[t]);
-      }*/
        maxArr[q]=newArr[k-1];
        q++;
      }
